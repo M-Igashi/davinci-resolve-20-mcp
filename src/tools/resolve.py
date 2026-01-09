@@ -4,9 +4,9 @@ Resolve-level tools for DaVinci Resolve MCP Server.
 Covers: App control, pages, presets, keyframe modes.
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
-from ..core import get_resolve, handle_resolve_errors, require_resolve
+from ..core import handle_resolve_errors, require_resolve
 
 # ==================== Application Control ====================
 
@@ -93,7 +93,7 @@ def save_layout_preset(preset_name: str, conn=None) -> str:
     """Save current UI layout as a preset."""
     if conn.resolve.SaveLayoutPreset(preset_name):
         return f"Successfully saved layout preset '{preset_name}'"
-    return f"Failed to save layout preset"
+    return "Failed to save layout preset"
 
 
 @handle_resolve_errors
@@ -102,7 +102,7 @@ def update_layout_preset(preset_name: str, conn=None) -> str:
     """Update an existing layout preset with current layout."""
     if conn.resolve.UpdateLayoutPreset(preset_name):
         return f"Successfully updated layout preset '{preset_name}'"
-    return f"Failed to update layout preset"
+    return "Failed to update layout preset"
 
 
 @handle_resolve_errors
@@ -111,7 +111,7 @@ def delete_layout_preset(preset_name: str, conn=None) -> str:
     """Delete a layout preset."""
     if conn.resolve.DeleteLayoutPreset(preset_name):
         return f"Successfully deleted layout preset '{preset_name}'"
-    return f"Failed to delete layout preset"
+    return "Failed to delete layout preset"
 
 
 @handle_resolve_errors
@@ -120,7 +120,7 @@ def export_layout_preset(preset_name: str, file_path: str, conn=None) -> str:
     """Export a layout preset to file."""
     if conn.resolve.ExportLayoutPreset(preset_name, file_path):
         return f"Successfully exported layout preset to '{file_path}'"
-    return f"Failed to export layout preset"
+    return "Failed to export layout preset"
 
 
 @handle_resolve_errors
@@ -134,7 +134,7 @@ def import_layout_preset(file_path: str, preset_name: str = None, conn=None) -> 
 
     if result:
         return f"Successfully imported layout preset from '{file_path}'"
-    return f"Failed to import layout preset"
+    return "Failed to import layout preset"
 
 
 # ==================== Render/Burn-in Presets ====================
@@ -146,7 +146,7 @@ def import_render_preset(preset_path: str, conn=None) -> str:
     """Import a render preset from file and set as current."""
     if conn.resolve.ImportRenderPreset(preset_path):
         return f"Successfully imported render preset from '{preset_path}'"
-    return f"Failed to import render preset"
+    return "Failed to import render preset"
 
 
 @handle_resolve_errors
@@ -155,7 +155,7 @@ def export_render_preset(preset_name: str, export_path: str, conn=None) -> str:
     """Export a render preset to file."""
     if conn.resolve.ExportRenderPreset(preset_name, export_path):
         return f"Successfully exported render preset to '{export_path}'"
-    return f"Failed to export render preset"
+    return "Failed to export render preset"
 
 
 @handle_resolve_errors
@@ -164,7 +164,7 @@ def import_burn_in_preset(preset_path: str, conn=None) -> str:
     """Import a data burn-in preset from file."""
     if conn.resolve.ImportBurnInPreset(preset_path):
         return f"Successfully imported burn-in preset from '{preset_path}'"
-    return f"Failed to import burn-in preset"
+    return "Failed to import burn-in preset"
 
 
 @handle_resolve_errors
@@ -173,7 +173,7 @@ def export_burn_in_preset(preset_name: str, export_path: str, conn=None) -> str:
     """Export a data burn-in preset to file."""
     if conn.resolve.ExportBurnInPreset(preset_name, export_path):
         return f"Successfully exported burn-in preset to '{export_path}'"
-    return f"Failed to export burn-in preset"
+    return "Failed to export burn-in preset"
 
 
 # ==================== Keyframe Mode ====================
@@ -199,7 +199,7 @@ def set_keyframe_mode(mode: int, conn=None) -> str:
 
     if conn.resolve.SetKeyframeMode(mode):
         return f"Successfully set keyframe mode to '{mode_names[mode]}'"
-    return f"Failed to set keyframe mode"
+    return "Failed to set keyframe mode"
 
 
 # ==================== Media Storage ====================
@@ -236,7 +236,7 @@ def reveal_in_storage(path: str, conn=None) -> str:
     storage = conn.media_storage
     if storage.RevealInStorage(path):
         return f"Successfully revealed '{path}' in Media Storage"
-    return f"Failed to reveal path"
+    return "Failed to reveal path"
 
 
 @handle_resolve_errors

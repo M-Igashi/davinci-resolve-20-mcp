@@ -33,7 +33,7 @@ if parent_dir not in sys.path:
 from mcp.server.fastmcp import FastMCP
 
 # Import core
-from core import ResolveConnection, get_resolve
+from core import get_resolve
 
 # Import tools
 from tools import color_group, gallery, graph, media, project, timeline, timeline_item

@@ -8,7 +8,6 @@ and automatic reconnection support.
 import logging
 import os
 import sys
-from functools import cached_property
 from typing import Any, Optional
 
 from .errors import NoMediaPoolError, NoProjectError, NotConnectedError, NoTimelineError

@@ -4,13 +4,11 @@ Timeline management tools for DaVinci Resolve MCP Server.
 Covers: Timeline creation, tracks, markers, clips, subtitles, and effects.
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 from ..core import (
-    get_resolve,
     handle_resolve_errors,
     require_project,
-    require_resolve,
     require_timeline,
 )
 
@@ -115,7 +113,7 @@ def set_timeline_name(new_name: str, conn=None, project=None, timeline=None) -> 
     old_name = timeline.GetName()
     if timeline.SetName(new_name):
         return f"Successfully renamed timeline from '{old_name}' to '{new_name}'"
-    return f"Failed to rename timeline"
+    return "Failed to rename timeline"
 
 
 @handle_resolve_errors
@@ -124,7 +122,7 @@ def set_start_timecode(timecode: str, conn=None, project=None, timeline=None) ->
     """Set the start timecode of the timeline."""
     if timeline.SetStartTimecode(timecode):
         return f"Successfully set start timecode to '{timecode}'"
-    return f"Failed to set start timecode"
+    return "Failed to set start timecode"
 
 
 # ==================== Track Management ====================
@@ -180,7 +178,7 @@ def delete_track(
     """Delete a track from the timeline."""
     if timeline.DeleteTrack(track_type, track_index):
         return f"Successfully deleted {track_type} track {track_index}"
-    return f"Failed to delete track"
+    return "Failed to delete track"
 
 
 @handle_resolve_errors
@@ -635,7 +633,7 @@ def create_compound_clip(
         else timeline.CreateCompoundClip(items)
     )
     if result:
-        return f"Successfully created compound clip"
+        return "Successfully created compound clip"
     return "Failed to create compound clip"
 
 
@@ -804,7 +802,7 @@ def set_timeline_setting(
     """Set a timeline setting value."""
     if timeline.SetSetting(setting_name, setting_value):
         return f"Successfully set '{setting_name}' to '{setting_value}'"
-    return f"Failed to set timeline setting"
+    return "Failed to set timeline setting"
 
 
 @handle_resolve_errors

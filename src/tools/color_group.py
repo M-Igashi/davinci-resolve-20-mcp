@@ -4,9 +4,9 @@ Color Group tools for DaVinci Resolve MCP Server.
 Covers: Color group management and pre/post clip node graphs.
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
-from ..core import get_resolve, handle_resolve_errors, require_project, require_timeline
+from ..core import handle_resolve_errors, require_project, require_timeline
 
 
 def _find_color_group(project, group_name: str):
@@ -39,7 +39,7 @@ def create_color_group(group_name: str, conn=None, project=None) -> str:
     result = project.AddColorGroup(group_name)
     if result:
         return f"Successfully created color group '{group_name}'"
-    return f"Failed to create color group"
+    return "Failed to create color group"
 
 
 @handle_resolve_errors

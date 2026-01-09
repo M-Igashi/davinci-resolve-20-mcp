@@ -4,9 +4,9 @@ Gallery tools for DaVinci Resolve MCP Server.
 Covers: Gallery albums, stills, PowerGrades.
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
-from ..core import get_resolve, handle_resolve_errors, require_project, with_page
+from ..core import handle_resolve_errors, require_project
 
 # ==================== Album Operations ====================
 
@@ -84,7 +84,7 @@ def create_still_album(conn=None, project=None) -> str:
     gallery = conn.gallery
     album = gallery.CreateGalleryStillAlbum()
     if album:
-        return f"Successfully created still album"
+        return "Successfully created still album"
     return "Failed to create album"
 
 
@@ -95,7 +95,7 @@ def create_power_grade_album(conn=None, project=None) -> str:
     gallery = conn.gallery
     album = gallery.CreateGalleryPowerGradeAlbum()
     if album:
-        return f"Successfully created PowerGrade album"
+        return "Successfully created PowerGrade album"
     return "Failed to create album"
 
 
@@ -245,7 +245,7 @@ def import_stills(
         return f"Error: Album '{album_name}' not found"
 
     if target_album.ImportStills(file_paths):
-        return f"Successfully imported stills"
+        return "Successfully imported stills"
     return "Failed to import stills"
 
 

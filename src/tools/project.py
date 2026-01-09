@@ -4,9 +4,9 @@ Project management tools for DaVinci Resolve MCP Server.
 Covers: Project creation, opening, saving, settings, database management.
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
-from ..core import get_resolve, handle_resolve_errors, require_project, require_resolve
+from ..core import handle_resolve_errors, require_project, require_resolve
 
 # ==================== Project Operations ====================
 
@@ -326,7 +326,7 @@ def set_render_format_and_codec(
     """Set render format and codec."""
     if project.SetCurrentRenderFormatAndCodec(format, codec):
         return f"Successfully set format to '{format}' with codec '{codec}'"
-    return f"Failed to set render format and codec"
+    return "Failed to set render format and codec"
 
 
 @handle_resolve_errors

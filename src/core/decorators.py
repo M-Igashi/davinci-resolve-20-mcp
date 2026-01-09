@@ -10,7 +10,7 @@ import logging
 from typing import Any, Callable, ParamSpec, TypeVar
 
 from .connection import get_resolve
-from .errors import NoProjectError, NotConnectedError, NoTimelineError, ResolveError
+from .errors import NotConnectedError, ResolveError
 
 logger = logging.getLogger("davinci-resolve-mcp")
 

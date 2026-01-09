@@ -4,10 +4,9 @@ Media Pool tools for DaVinci Resolve MCP Server.
 Covers: Media import, clips, folders, metadata, transcription.
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 from ..core import (
-    get_resolve,
     handle_resolve_errors,
     require_media_pool,
     require_project,
@@ -158,7 +157,7 @@ def set_clip_property(
 
     if clip.SetClipProperty(property_name, property_value):
         return f"Successfully set '{property_name}' to '{property_value}'"
-    return f"Failed to set property"
+    return "Failed to set property"
 
 
 @handle_resolve_errors
@@ -275,7 +274,7 @@ def create_folder(
     new_folder = media_pool.AddSubFolder(parent, folder_name)
     if new_folder:
         return f"Successfully created folder '{folder_name}'"
-    return f"Failed to create folder"
+    return "Failed to create folder"
 
 
 @handle_resolve_errors
@@ -612,7 +611,7 @@ def link_proxy_media(
         return f"Error: Clip '{clip_name}' not found"
 
     if clip.LinkProxyMedia(proxy_path):
-        return f"Successfully linked proxy media"
+        return "Successfully linked proxy media"
     return "Failed to link proxy media"
 
 
@@ -907,7 +906,7 @@ def set_clip_mark_in_out(
         return f"Error: Clip '{clip_name}' not found"
 
     if clip.SetMarkInOut(mark_in, mark_out, mark_type):
-        return f"Successfully set mark in/out"
+        return "Successfully set mark in/out"
     return "Failed to set mark in/out"
 
 

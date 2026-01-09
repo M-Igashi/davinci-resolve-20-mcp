@@ -4,9 +4,9 @@ Node Graph tools for DaVinci Resolve MCP Server.
 Covers: Node graph manipulation, LUTs, cache modes.
 """
 
-from typing import Any, Dict, List, Optional
+from typing import List
 
-from ..core import get_resolve, handle_resolve_errors, require_timeline
+from ..core import handle_resolve_errors, require_timeline
 
 
 def _get_node_graph(conn, item_id: str = None, layer_idx: int = 1):

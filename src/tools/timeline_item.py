@@ -6,7 +6,7 @@ Covers: Timeline item properties, transforms, effects, versions, Fusion, and AI 
 
 from typing import Any, Dict, List, Optional
 
-from ..core import get_resolve, handle_resolve_errors, require_timeline
+from ..core import handle_resolve_errors, require_timeline
 
 
 def _get_item_by_id(conn, item_id: str):
@@ -162,7 +162,7 @@ def add_flag(item_id: str, color: str, conn=None, project=None, timeline=None) -
     item = _get_item_by_id(conn, item_id)
     if item.AddFlag(color):
         return f"Successfully added {color} flag"
-    return f"Failed to add flag"
+    return "Failed to add flag"
 
 
 @handle_resolve_errors
