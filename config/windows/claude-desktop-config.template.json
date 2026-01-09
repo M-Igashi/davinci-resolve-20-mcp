@@ -1,9 +1,11 @@
 {
+  "__IMPORTANT_NOTE__": "TEMPLATE: Replace ${PROJECT_ROOT} with your actual path (e.g., C:\\Users\\username\\davinci-resolve-20-mcp)",
+  "__VERSION__": "2.0.0",
   "mcpServers": {
     "davinci-resolve": {
       "name": "DaVinci Resolve MCP",
       "command": "${PROJECT_ROOT}/venv/Scripts/python.exe",
-      "args": ["${PROJECT_ROOT}/resolve_mcp_server.py"],
+      "args": ["${PROJECT_ROOT}/src/server.py"],
       "env": {
         "RESOLVE_SCRIPT_API": "C:/ProgramData/Blackmagic Design/DaVinci Resolve/Support/Developer/Scripting",
         "RESOLVE_SCRIPT_LIB": "C:/Program Files/Blackmagic Design/DaVinci Resolve/fusionscript.dll",
@@ -11,4 +13,4 @@
       }
     }
   }
-} 
+}

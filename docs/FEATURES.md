@@ -1,12 +1,26 @@
 # DaVinci Resolve MCP Server Features
 
-This document tracks the implementation status of features in the DaVinci Resolve MCP (Multi-Client Protocol) Server. It is organized by feature categories and provides details on implementation status, compatibility with clients, and any known issues.
+This document tracks the implementation status of features in the DaVinci Resolve MCP (Model Context Protocol) Server. It is organized by feature categories and provides details on implementation status, compatibility with clients, and any known issues.
+
+## Version 2.0.0 Architecture
+
+The v2.0.0 release features a complete architectural overhaul:
+
+| Module | Functions | Description |
+|--------|-----------|-------------|
+| `src/tools/project.py` | 57 | Project, database, folder, render management |
+| `src/tools/timeline.py` | 60 | Timeline CRUD, tracks, markers, AI features |
+| `src/tools/timeline_item.py` | 64 | Clip properties, fusion, versions, takes, AI |
+| `src/tools/media.py` | 57 | Import/export, metadata, proxy, transcription |
+| `src/tools/gallery.py` | 17 | Still albums, power grades, import/export |
+| `src/tools/graph.py` | 14 | Node graph, LUTs, cache modes |
+| `src/tools/color_group.py` | 16 | Color group management, pre/post clip graphs |
+| `src/tools/resolve.py` | 29 | App control, layout presets, media storage |
+| **Total** | **314** | Comprehensive API coverage |
 
 ## Implementation Status
 
-The MCP server implements nearly all features from the DaVinci Resolve scripting API, but our testing has revealed that while we have implemented 202 features (100%), only a small percentage have been verified working on macOS (8%), with many features still needing verification (82%) or having known issues (10%).
-
-Testing has primarily been conducted on macOS, with Windows support implemented but requiring thorough testing. Each feature in this document is marked with symbols indicating its current status:
+The MCP server implements comprehensive features from the DaVinci Resolve scripting API (October 2025 documentation). Testing has primarily been conducted on macOS, with Windows support implemented but requiring thorough testing. Each feature in this document is marked with symbols indicating its current status:
 
 **Status Key:**
 - ✅ - Implemented and verified working
